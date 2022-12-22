@@ -1,6 +1,6 @@
 <template>
   <input v-model.number="k" placeholder="edit me" />
-
+  <p>{{translation[0][1]}}</p>
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g>
       <circle cx="50" cy="50" r="10" />
@@ -14,13 +14,13 @@
       fill="blue"
       :transform="`rotate(${angle_generator[i]} 50 50) translate(0 10)`"
     >
-      <circle cx="50" cy="50" r="1" />
+      <circle cx="50" cy="50" r="2" />
       <text
         x="50"
         y="50"
-        fill="red"
+        fill="black"
         font-size="20%"
-        :transform="`rotate(${angle_alignment[i]} 50 50) translate(-1, -10) `"
+        :transform="`rotate(${angle_alignment[i]} 50 50) translate(${translation[0][i]} ${translation[0][i]})`"
       >
         {{ id_generator[i] }}
       </text>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       i: '',
-      k: 1,
+      k: 10,
     };
   },
   methods: {
@@ -90,6 +90,17 @@ export default {
       }
       return id;
     },
+    translation() {
+      let translation = [[1,-10]];
+      let real_translation = [];
+      let n = 0;
+
+      while (n < this.k) {
+        real_translation.push(translation[n])
+        n ++
+      }
+      return translation
+    }
   },
 };
 </script>
