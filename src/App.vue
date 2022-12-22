@@ -1,7 +1,6 @@
 <template>
   <input v-model.number="k" placeholder="edit me" />
 
-  <span class="dot"></span>
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g
       v-for="i in range(k)"
@@ -92,11 +91,5 @@ export default {
 #a {
   transform-origin: 50% 50%;
 }
-.dot {
-  height: 25px;
-  width: 25px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
+
 </style>
