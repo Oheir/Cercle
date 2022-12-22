@@ -20,7 +20,7 @@
         y="50"
         fill="red"
         font-size="20%"
-        :transform="`translate(-1, 10)`"
+        :transform="`rotate(${angle_alignment[i]} 50 50) translate(-1, -10) `"
       >
         {{ id_generator[i] }}
       </text>
@@ -60,6 +60,20 @@ export default {
 
       while (n < this.k) {
         angles.push(180 + nbr_angle);
+        nbr_angle += nbr_angle_base;
+        n++;
+      }
+
+      return angles;
+    },
+    angle_alignment() {
+      let n = 1;
+      let nbr_angle_base = 360 / this.k;
+      let nbr_angle = 360 / this.k;
+      let angles = [180];
+
+      while (n < this.k) {
+        angles.push(180 - nbr_angle);
         nbr_angle += nbr_angle_base;
         n++;
       }
